@@ -21,9 +21,3 @@ class person():
 
 user_1 = person("Farkhod Sadykov", 1996, "Male", "redhat")
 user_2 = person("Bakulya Alymbek", 1994, "Female", "noredhat")
-
-# user_1.fullinfo()
-# user_2.fullinfo()
-# user_1.entry()
-# user_1.changeName()
-# user_1.fullinfo()
