@@ -1,0 +1,25 @@
+{
+  "id": 36346489,
+  "name": "WordPress on 16.05",
+  "distribution": "Ubuntu",
+  "slug": "wordpress-16-04",
+  "public": true,
+  "regions": [
+    "nyc1",
+    "sfo1",
+    "nyc2",
+    "ams2",
+    "sgp1",
+    "lon1",
+    "nyc3",
+    "ams3",
+    "fra1",
+    "tor1",
+    "sfo2",
+    "blr1"
+  ],
+  "created_at": "2018-07-18T17:02:07Z",
+  "min_disk_size": 25,
+  "type": "snapshot",
+  "size_gigabytes": 0.51
+}
