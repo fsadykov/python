@@ -1,0 +1,23 @@
+[
+  {
+    "fname": "Abdul",
+    "lname": "Shariev",
+    "username": "abdulx",
+    "status": false,
+    "password": "redhat"
+  },
+  {
+    "fname": "Farkhod",
+    "lname": "Sadykov",
+    "username": "farkhodsadykov",
+    "status": true,
+    "password": "redhat1"
+  },
+  {
+    "fname": "Nursultan",
+    "lname": "Abdyrakmanov",
+    "username": "nursultan",
+    "status": true,
+    "password": "redhat2"
+  }
+]
