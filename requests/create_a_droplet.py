@@ -2,8 +2,20 @@ import requests
 
 # Connect to DigitalOcean
 url = 'https://api.digitalocean.com/v2/droplets'
-token = 'c4524635b2484d4baf4d8b8af1e680ed6ae8f9b829e1556c71970dd5a0c58e85'
+token = input("Please enter your token")
+
+dicDroplet = {
+'name': 'example.com',
+'region': 'nyc3',
+'size': 's-1vcpu-1gb',
+'image': 'ubuntu-16-04-x64',
+'ssh_keys': None,
+'backups': False,
+'ipv6': True,
+'user_data': None,
+'private_networking': None,
+'volumes': None,
+'tags': ['web']}
 
 # Get list of all droplet
-
-droplets = requests.post(url=url, headers={'Authorization': 'Bearer {}'.format(token)}, body=machine)
+createDroplet = requests.post(url=url, headers={"Authorization": "Bearer {}".format(token)}, json=dicDroplet)
