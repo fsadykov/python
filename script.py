@@ -1,21 +1,9 @@
+def user_selection(select):
+    t = select
+    user_selection = "2"
+    new_selection = t + user_selection
+    return new_selection
 
-def printHello(data):
-    print("Hello 1" + data )
 
-def add(x, y):
-    """Add Fundction"""
-    return x + y
-
-def subtract(x, y):
-    """Subtract Fundction"""
-    return x - y
-
-def multiply(x, y):
-    """Multiply Fundction"""
-    return x * y
-
-def divide(x, y):
-    """Divide Function"""
-    if y == 0:
-        raise ValueError('Can not divide by zero!')
-    return x / y
+if __name__ == '__main__':
+    print(user_selection(1))
