@@ -10,7 +10,6 @@ def pingHost(IPHOST):
 
 os.system('ansible all -u root -i hosts -m ping ')
 
-
 def buildthemysql():
     with open('test.yml', 'w') as file:
         yaml.dump(data, file)

@@ -18,3 +18,4 @@
     name: Change root user password on first run
     with_items: [$ansible_hostname, 127.0.0.1, '::1', localhost]
   vars: {current_password: 'default([])', new_password: Redhat2018}
+  
