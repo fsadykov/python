@@ -1,28 +1,47 @@
-# Task 2
+# Digital-Ocean python Api Module
 #dev/Python
 
-Welcome to Python Class Task 2.
-
-# Work with google api maps 
-1. Create script which will make api call call
-2. Inside script create list of cites (New york, Los Angeles, Houston, Dallas, Denver)
-3. Make api call to google to get distance between Chicago to your cites list
-4. Take snapshots and send to the group 
-
-# Examples 
-![](README/Screen%20Shot%202018-10-12%20at%209.13.43%20PM.png)
-
-
-![](README/Screen%20Shot%202018-10-12%20at%209.13.50%20PM.png)
-
-![](README/Screen%20Shot%202018-10-12%20at%209.14.26%20PM.png)
-
-
-``` 
-https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=YOURTOKEN
+Connect manager module 
+```
+manager = digitalocean.Manager(token="you token")
 ```
 
+`manager.end_point` To see where goes all data
+`manager.get_all_droplets()` See all droplets 
+`manager.get_account()` Get account information 
+`manager.get_all_sshkeys()` Get all your ssh keys in DC
 
-# Result example
-![](README/Screen%20Shot%202018-10-12%20at%209.25.01%20PM.png)
 
+## Creating a droplet (instance) to Digital-Ocean
+``` This code will create droplet existing ssh-key
+import 
+manager = digitalocean.Manager(token="yourtoken")
+keys = manager.get_all_sshkeys()
+droplet = digitalocean.Droplet(token="yourtoken", name='PythonDroplet', region = "nyc3", size_slug='512mb', image='centos-7-x64', ssh_keys=keys, backups=False)
+droplet.create()
+
+```
+
+## Manage a droplet drom digitaal-oceaan 
+```
+droplet = manager.get_droplet(droplet_id=105189062)
+
+```
+
+`droplet.status` See the status 
+`droplet.memory` To see memory of the droplet 
+
+
+
+ |  Args:
+ |      name (str): name
+ |      size_slug (str): droplet size
+ |      image (str): image name to use to create droplet
+ |      region (str): region
+ |      ssh_keys: (:obj:`str`, optional): list of ssh keys
+ |      backups (bool): True if backups enabled
+ |      ipv6 (bool): True if ipv6 enabled
+ |      private_networking (bool): True if private networking enabled
+ |      user_data (str): arbitrary data to pass to droplet
+ |      volumes (:obj:`str`, optional): list of blockstorage volumes
+ |      monitoring: (bool) - True if installing the DigitalOcean monitoring agent
