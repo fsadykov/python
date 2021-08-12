@@ -1,0 +1,36 @@
+--- # Author Farkhod Sadykov
+-  hosts: mysql-server
+   become: all
+   become_method: sudo
+   connection: ssh
+   vars:
+     current_password: default([])
+     new_password: Redhat2018
+   tasks:
+     - name: Install epel release for MySQL server
+       yum:
+         name: http://repo.mysql.com/mysql-community-release-el7-7.noarch.rpm
+         state: present
+       become: yes
+
+     - name: Install MySQL Community Repo
+       yum: name=mysql-server state=present
+       become: yes
+
+     - name: Install MySQL-python this is required for the task remove anonymous user
+       yum: name=MySQL-python state=present
+       become: yes
+
+     - name: Start MySQL server and enable it
+       service: name=mysqld state=started enabled=yes
+       become: yes
+
+     - name: Change root user password on first run
+       mysql_user: login_user=root login_password='' name=root password={{ new_password }} priv=*.*:ALL,GRANT host={{ item }}
+       with_items:
+         - $ansible_hostname
+         - 127.0.0.1
+         - ::1
+         - localhost
+
+       ignore_errors: true
